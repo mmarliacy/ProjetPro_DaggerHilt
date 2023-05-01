@@ -22,4 +22,5 @@
     <string name="appointment_item_menu">Appointments</string>
     <string name="client_item_menu">Clients</string>
     <string name="fab_add_appointment">Add appointment</string>
+    <string name="chipGroup_indicator">Choose services, they will appear below !</string>
 </resources>

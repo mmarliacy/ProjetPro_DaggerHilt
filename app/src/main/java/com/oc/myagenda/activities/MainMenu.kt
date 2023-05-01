@@ -9,13 +9,14 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationBarView
 import com.oc.myagenda.R
 import com.oc.myagenda.fragments.AppointmentFragment
-import com.oc.myagenda.fragments.ClientFragment
+import com.oc.myagenda.fragments.CustomerFragment
 import com.oc.myagenda.fragments.ServiceFragment
 
 class MainMenu : AppCompatActivity() {
 
     lateinit var toolbar: Toolbar
     private lateinit var bottomNav: NavigationBarView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +33,7 @@ class MainMenu : AppCompatActivity() {
                     toolbar.title = "Appointments"
                 }
                 R.id.clients -> {
-                    replaceFragment(ClientFragment())
+                    replaceFragment(CustomerFragment())
                     toolbar.title = "Clients"
                 }
                 R.id.services -> {
@@ -57,4 +58,6 @@ class MainMenu : AppCompatActivity() {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
+
 }

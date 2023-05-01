@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.oc.myagenda.R
-import com.oc.myagenda.model.Client
+import com.oc.myagenda.model.Customer
 
-class ClientAdapter(private var clientList:ArrayList<Client>): RecyclerView.Adapter<ClientAdapter.ViewHolder>() {
+class CustomerAdapter(private var pCustomerList:ArrayList<Customer>): RecyclerView.Adapter<CustomerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.client_item, parent, false)
@@ -16,12 +16,18 @@ class ClientAdapter(private var clientList:ArrayList<Client>): RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val client : Client = clientList[position]
-        holder.clientName.text = client.name
+        val customer : Customer = pCustomerList[position]
+        holder.clientName.text = customer.name
+
     }
 
     override fun getItemCount(): Int {
-            return clientList.size
+            return pCustomerList.size
+    }
+
+
+    fun updateClientList (){
+        notifyDataSetChanged()
     }
 
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view){

@@ -15,18 +15,18 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/client_name_form"
+            android:id="@+id/service_name_form"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:hint="Client's name"
+            android:hint="Service's name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:startIconDrawable="@drawable/text_format">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/client_name_txt"
+                android:id="@+id/service_name_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -35,51 +35,47 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/client_number_form"
+            android:id="@+id/service_price_form"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:hint="Client's number"
-            app:counterEnabled="true"
-            app:counterMaxLength="15"
+            android:hint="Price"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/client_name_form"
-            app:startIconDrawable="@drawable/phone">
+            app:layout_constraintTop_toBottomOf="@+id/service_name_form"
+            app:startIconDrawable="@drawable/price_check_icon">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/client_number_txt"
+                android:id="@+id/service_price_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:inputType="phone"
+                android:inputType="number"
                 android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/client_address_form"
+            android:id="@+id/completion_time_form"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:hint="Client's address"
+            android:layout_margin="20dp"
+            android:hint="Completion time"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/client_number_form"
-            app:startIconDrawable="@drawable/place">
+            app:layout_constraintTop_toBottomOf="@+id/service_price_form"
+            app:startIconDrawable="@drawable/timer_icon">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/client_address_txt"
+                android:id="@+id/completion_time_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:inputType="textPostalAddress"
+                android:inputType="number"
                 android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/add_client_btn"
+            android:id="@+id/add_service_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -90,6 +86,7 @@
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/client_address_form" />
+            app:layout_constraintTop_toBottomOf="@+id/completion_time_form" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

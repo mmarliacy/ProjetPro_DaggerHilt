@@ -1,12 +1,15 @@
 package com.oc.myagenda.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.oc.myagenda.R
+import com.oc.myagenda.activities.AddAppointment
 import com.oc.myagenda.adapters.AppointmentAdapter
 import com.oc.myagenda.model.Appointment
 
@@ -15,9 +18,11 @@ class AppointmentFragment : Fragment(R.layout.appointment_recycler_view) {
     private lateinit var  appointmentAdapter: AppointmentAdapter
     private lateinit var recyclerView: RecyclerView
     private lateinit var list : ArrayList<Appointment>
+    private lateinit var addAppointmentBtn : FloatingActionButton
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        addAppointmentBtn = view.findViewById(R.id.app_fab)
         createList()
         val layoutManager : LayoutManager = LinearLayoutManager(context)
         recyclerView = view.findViewById(R.id.appointment_recycler_view)
@@ -25,6 +30,9 @@ class AppointmentFragment : Fragment(R.layout.appointment_recycler_view) {
         appointmentAdapter = AppointmentAdapter(list)
         recyclerView.adapter = appointmentAdapter
 
+        addAppointmentBtn.setOnClickListener{
+            startActivity(Intent(context, AddAppointment::class.java))
+        }
     }
 
     private fun createList(){

@@ -9,8 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.oc.myagenda.R
 import com.oc.myagenda.model.Service
 
-class ServiceAdapter (private var serviceList : ArrayList<Service>): RecyclerView.Adapter<ServiceAdapter.ServiceViewHolder>(){
+class ServiceAdapter: RecyclerView.Adapter<ServiceAdapter.ServiceViewHolder>(){
 
+    var serviceList : ArrayList<Service> = ArrayList()
+    set(value){
+        field = value
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.service_item, parent, false)
