@@ -18,11 +18,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Booking"
+            android:text="@string/booking"
             android:textColor="@color/black"
             android:fontFamily="@font/sarabun"
             android:textSize="30sp" />
@@ -34,7 +34,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Client's name"
         app:layout_constraintEnd_toStartOf="@+id/add_client_book_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
@@ -45,8 +44,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
+            android:hint="@string/client_s_name"
             android:inputType="text"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
@@ -58,7 +59,8 @@
         android:src="@drawable/add_white"
         app:layout_constraintBottom_toBottomOf="@+id/client_name_book_form"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/client_name_book_form" />
+        app:layout_constraintTop_toTopOf="@+id/client_name_book_form"
+        android:contentDescription="@string/add_customer" />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -66,7 +68,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Date"
+        android:hint="@string/date"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/client_name_book_form"
@@ -86,7 +88,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Time"
+        android:hint="@string/time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/client_name_book_form"
@@ -114,7 +116,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Services"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date_picker_book_form"
@@ -125,6 +126,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
+            android:hint="@string/select_services"
             android:inputType="text"
             android:textSize="15sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -133,7 +135,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/cancel_new_appointment"
         app:layout_constraintTop_toBottomOf="@+id/services_book_form">
 
 
@@ -155,14 +157,25 @@
 
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/add_new_appointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/black"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/cancel_new_appointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:backgroundTint="@color/white"
-        android:text="OK"
+        android:text="@string/cancel"
         android:textColor="@color/light_orange"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

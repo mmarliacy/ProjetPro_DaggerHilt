@@ -23,7 +23,7 @@ class AppointmentAdapter(
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val appointment = appointmentList[position]
-        holder.clientName.text = appointment.client
+        holder.clientName.text = appointment.client.name
         holder.totalPrice.text = "${appointment.totalPrice} €"
         holder.numbersOfServices.text = "${appointment.services.size} service(s) - "
         holder.date.text = appointment.date

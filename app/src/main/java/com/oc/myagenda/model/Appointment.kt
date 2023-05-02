@@ -1,9 +1,9 @@
 package com.oc.myagenda.model
 
 class Appointment (
-    var client : String,
+    var client : Customer,
     var date : String,
     var hour : String,
-    var services: List<String>,
+    var services: ArrayList<Service>,
     var totalPrice : Int) {
 }

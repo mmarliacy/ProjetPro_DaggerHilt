@@ -23,4 +23,14 @@
     <string name="client_item_menu">Clients</string>
     <string name="fab_add_appointment">Add appointment</string>
     <string name="chipGroup_indicator">Choose services, they will appear below !</string>
+    <string name="booking">Booking</string>
+    <string name="client_s_name">Client\'s name</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="services">Services</string>
+    <string name="select_services">Select services</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="addcustomer">addCustomer</string>
+    <string name="add_customer">add_customer</string>
 </resources>
