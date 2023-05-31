@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.chip.Chip
 import com.google.android.material.textfield.TextInputEditText
 import com.oc.myagenda.R
+import com.oc.myagenda.adapters.AppointmentAdapter
 import com.oc.myagenda.adapters.CustomerDropDownMenuAdapter
 import com.oc.myagenda.adapters.ServiceDropDownMenuAdapter
 import com.oc.myagenda.component.CustomerBottomSheet
@@ -70,6 +71,10 @@ class AddAppointment : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         newAppointmentBtn.setOnClickListener{
             val appointment = Appointment(finalCustomer, finalDate, finalTime, finalServicesList, finalPrice)
             appointmentList.add(appointment)
+            val adapter  = AppointmentAdapter(appointmentList)
+            adapter.updateList(appointmentList)
+            startActivity(Intent(this, MainMenu::class.java))
+            Log.i("App List", "${appointmentList.size}")
         }
     }
     //-----------
@@ -112,7 +117,7 @@ class AddAppointment : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     // 1 -- Display service list in AutoCompleteTextView -->
     private fun displayServicesListAndSelect() {
         // -- Get services list and pass it to the adapter --
-        val serviceList = ServiceFragment().list
+        val serviceList = ServiceFragment().serviceList
         val serviceAdapter = ServiceDropDownMenuAdapter(this, serviceList)
         binding.servicesBookTxt.setAdapter(serviceAdapter)
         // -- Select service in the list and it appears in chipGroup View --

@@ -1,5 +1,6 @@
 package com.oc.myagenda.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.oc.myagenda.R
 import com.oc.myagenda.model.Customer
 
-class CustomerAdapter(private var pCustomerList:ArrayList<Customer>): RecyclerView.Adapter<CustomerAdapter.ViewHolder>() {
+class CustomerAdapter(): RecyclerView.Adapter<CustomerAdapter.ViewHolder>() {
 
+    var pCustomerList = ArrayList<Customer>()
+        @SuppressLint("NotifyDataSetChanged")
+        set(value){
+            field = value
+            notifyDataSetChanged()
+        }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.client_item, parent, false)
         return ViewHolder(view)

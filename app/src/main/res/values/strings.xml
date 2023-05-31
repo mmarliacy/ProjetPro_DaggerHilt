@@ -33,4 +33,6 @@
     <string name="cancel">Cancel</string>
     <string name="addcustomer">addCustomer</string>
     <string name="add_customer">add_customer</string>
+    <string name="down_arrow">down arrow</string>
+    <string name="section_field">Section</string>
 </resources>

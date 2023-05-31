@@ -3,6 +3,7 @@ package com.oc.myagenda.fragments
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +19,7 @@ import com.oc.myagenda.model.Service
 
 class AppointmentFragment : Fragment(R.layout.appointment_recycler_view) {
 
-    private lateinit var  appointmentAdapter: AppointmentAdapter
+    private lateinit var appointmentAdapter: AppointmentAdapter
     private lateinit var recyclerView: RecyclerView
     private lateinit var addAppointmentBtn : FloatingActionButton
     var appointmentsList : ArrayList<Appointment> = arrayListOf(
@@ -41,20 +42,16 @@ class AppointmentFragment : Fragment(R.layout.appointment_recycler_view) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addAppointmentBtn = view.findViewById(R.id.app_fab)
-        createList()
-        val layoutManager : LayoutManager = LinearLayoutManager(context)
+        val layoutManager: LayoutManager = LinearLayoutManager(context)
         recyclerView = view.findViewById(R.id.appointment_recycler_view)
         recyclerView.layoutManager = layoutManager
         appointmentAdapter = AppointmentAdapter(appointmentsList)
         recyclerView.adapter = appointmentAdapter
         appointmentAdapter.notifyDataSetChanged()
-        addAppointmentBtn.setOnClickListener{
+        addAppointmentBtn.setOnClickListener {
             startActivity(Intent(context, AddAppointment::class.java))
+            Log.i("Data", "")
         }
     }
 
-    private fun createList(){
-        appointmentsList = ArrayList()
-
-    }
 }

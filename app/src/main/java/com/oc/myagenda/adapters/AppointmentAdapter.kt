@@ -9,10 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.oc.myagenda.R
 import com.oc.myagenda.model.Appointment
 
-class AppointmentAdapter(
-
-    private var appointmentList: ArrayList<Appointment>)
-    : RecyclerView.Adapter<AppointmentAdapter.ViewHolder>(){
+class AppointmentAdapter(private var appointmentList : ArrayList<Appointment>): RecyclerView.Adapter<AppointmentAdapter.ViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,6 +31,12 @@ class AppointmentAdapter(
         return appointmentList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateList(newList : ArrayList<Appointment>){
+        appointmentList.clear()
+        appointmentList.addAll(newList)
+        notifyDataSetChanged()
+    }
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         var clientName : TextView
         var numbersOfServices : TextView
