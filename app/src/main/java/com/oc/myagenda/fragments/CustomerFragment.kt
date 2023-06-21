@@ -10,28 +10,20 @@ import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.oc.myagenda.Data
 import com.oc.myagenda.R
 import com.oc.myagenda.adapters.CustomerAdapter
 import com.oc.myagenda.component.CustomerBottomSheet
 import com.oc.myagenda.model.Customer
 import java.util.*
-import kotlin.collections.ArrayList
 
 class CustomerFragment : Fragment(R.layout.client_recycler_view)  {
 
-
     private lateinit var recyclerView: RecyclerView
     private lateinit var addClient : FloatingActionButton
-    val customerList : ArrayList<Customer> = arrayListOf(
-        Customer("Coralie Mercier", "0697873456", "25 Av. de month, 91230 Montgeron"),
-        Customer("Stephanie Plenozas", "0622569768", "36 Rue François, 95460 Cergy"),
-        Customer("Patrick Boucher", "0697873456", "25 Av. de month, 91230 Montgeron"),
-        Customer("Marc-Antoine Laventure", "0697873456", "25 Av. de laQuey, 91230 Montgeron"),
-        Customer("Lorie Gua", "0697873456", "25 Av. de laQuey, 91230 Montgeron")
-    )
-
     var filteredCustomerList = arrayListOf<Customer>()
-    var  fCustomerAdapter: CustomerAdapter = CustomerAdapter()
+    var fCustomerAdapter = CustomerAdapter()
+    var customerList = Data.customerList
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,13 +50,10 @@ class CustomerFragment : Fragment(R.layout.client_recycler_view)  {
                         filteredCustomerList.clear()
                         val searchText = text!!.lowercase(Locale.getDefault())
                         if (searchText.isNotEmpty()) {
-
                             customerList.forEach {
-
                                 if (it.name.lowercase(Locale.getDefault()).contains(searchText)) {
                                     filteredCustomerList.add(it)
                                 }
-
                             }
                             recyclerView.adapter!!.notifyDataSetChanged()
 

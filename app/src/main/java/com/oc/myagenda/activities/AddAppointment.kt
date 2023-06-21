@@ -11,15 +11,15 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.chip.Chip
 import com.google.android.material.textfield.TextInputEditText
+import com.oc.myagenda.Data
 import com.oc.myagenda.R
 import com.oc.myagenda.adapters.AppointmentAdapter
-import com.oc.myagenda.adapters.CustomerDropDownMenuAdapter
-import com.oc.myagenda.adapters.ServiceDropDownMenuAdapter
+import com.oc.myagenda.adapters.dropdownmenu.CustomerDropDownMenuAdapter
+import com.oc.myagenda.adapters.dropdownmenu.ServiceDropDownMenuAdapter
 import com.oc.myagenda.component.CustomerBottomSheet
 import com.oc.myagenda.databinding.AddAppointmentBinding
 import com.oc.myagenda.fragments.AppointmentFragment
 import com.oc.myagenda.fragments.CustomerFragment
-import com.oc.myagenda.fragments.ServiceFragment
 import com.oc.myagenda.model.Appointment
 import com.oc.myagenda.model.Customer
 import com.oc.myagenda.model.Service
@@ -67,10 +67,10 @@ class AddAppointment : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     // ADD NEW APPOINTMENT
     //---------------------
     private fun createNewAppointment(){
-        val appointmentList = AppointmentFragment().appointmentsList
+        val appointmentList = Data.appointmentsList
         newAppointmentBtn.setOnClickListener{
-            val appointment = Appointment(finalCustomer, finalDate, finalTime, finalServicesList, finalPrice)
-            appointmentList.add(appointment)
+            //val appointment = Appointment(finalCustomer, finalDate, finalTime, finalServicesList, finalPrice)
+            //appointmentList.add(appointment)
             val adapter  = AppointmentAdapter(appointmentList)
             adapter.updateList(appointmentList)
             startActivity(Intent(this, MainMenu::class.java))
@@ -117,7 +117,7 @@ class AddAppointment : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     // 1 -- Display service list in AutoCompleteTextView -->
     private fun displayServicesListAndSelect() {
         // -- Get services list and pass it to the adapter --
-        val serviceList = ServiceFragment().serviceList
+        val serviceList = Data.serviceList
         val serviceAdapter = ServiceDropDownMenuAdapter(this, serviceList)
         binding.servicesBookTxt.setAdapter(serviceAdapter)
         // -- Select service in the list and it appears in chipGroup View --

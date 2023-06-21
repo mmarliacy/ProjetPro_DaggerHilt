@@ -40,9 +40,9 @@ class CustomerBottomSheet : BottomSheetDialogFragment(R.layout.add_client_dialog
         val customerNumber = number.text.toString()
         val customerAddress = address.text.toString()
 
-        val client = Customer(customerName, customerNumber, customerAddress)
+        //val client = Customer(customerName, customerNumber, customerAddress)
         var list = ArrayList<Customer>()
-        list.add(client)
+        //list.add(client)
         var clientAdapter = CustomerFragment().fCustomerAdapter
         clientAdapter.updateClientList()
 

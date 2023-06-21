@@ -1,3 +1,5 @@
 package com.oc.myagenda.model
 
-class ServiceSection(var section : String, var serviceList : ArrayList<Service>)
+import androidx.room.PrimaryKey
+
+class ServiceSection(@PrimaryKey val id : Int? = null, val section : String, val serviceList : ArrayList<Service>)

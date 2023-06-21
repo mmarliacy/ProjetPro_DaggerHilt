@@ -12,33 +12,17 @@ import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.oc.myagenda.Data
 import com.oc.myagenda.R
-import com.oc.myagenda.adapters.SectionAdapter
+import com.oc.myagenda.adapters.service.SectionAdapter
 import com.oc.myagenda.component.ServiceBottomSheet
 import com.oc.myagenda.model.Service
 import com.oc.myagenda.model.ServiceSection
 
 class ServiceFragment : Fragment(R.layout.service_recycler_view) {
-        private lateinit var sectionAdapter : SectionAdapter
-        private lateinit var recyclerView: RecyclerView
-        private lateinit var addNewService: FloatingActionButton
-
-    var serviceList: ArrayList<Service> = arrayListOf(
-        Service("Manucure", 30, 25),
-        Service("Pedicure", 40, 30),
-        Service("Soin visage", 30, 30),
-        Service("Depose", 10, 10),
-        Service("Modelage", 60, 45)
-    )
-
-
-    private var sectionServiceList: ArrayList<ServiceSection> = arrayListOf(
-        ServiceSection("Soins mains", arrayListOf(Service("Manucure", 30, 25), Service("Depose", 10, 10))),
-        ServiceSection("Soins corps", arrayListOf(Service("Modelage", 60, 45))),
-        ServiceSection("Soins visage", arrayListOf(Service("Soin éclatant", 30, 30))),
-        ServiceSection("Soins pieds", arrayListOf(Service("Pedicure", 40, 30))),
-        ServiceSection("Soins spécifiques", arrayListOf(Service("Séance madérothérapie", 60, 230)))
-    )
+    private lateinit var sectionAdapter : SectionAdapter
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var addNewService: FloatingActionButton
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,9 +33,7 @@ class ServiceFragment : Fragment(R.layout.service_recycler_view) {
     private fun configureRecyclerView(view : View){
         val manager = LinearLayoutManager(context)
         recyclerView = view.findViewById(R.id.section_recycler_view)
-        sectionAdapter = SectionAdapter()
-        sectionAdapter.sectionList = sectionServiceList
-
+        sectionAdapter = SectionAdapter(Data.sectionServiceList)
         recyclerView.apply {
             layoutManager = manager
             adapter = sectionAdapter
@@ -98,6 +80,4 @@ class ServiceFragment : Fragment(R.layout.service_recycler_view) {
             serviceDialog.show(parentFragmentManager, ServiceBottomSheet.TAG)
         }
     }
-
-
 }

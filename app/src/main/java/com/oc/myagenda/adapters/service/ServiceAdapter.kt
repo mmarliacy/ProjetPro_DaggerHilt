@@ -1,4 +1,4 @@
-package com.oc.myagenda.adapters
+package com.oc.myagenda.adapters.service
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

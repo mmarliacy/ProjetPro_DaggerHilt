@@ -1,9 +1,11 @@
 package com.oc.myagenda.model
 
+import androidx.room.PrimaryKey
+
 class Appointment (
-    var client : Customer,
-    var date : String,
-    var hour : String,
-    var services: ArrayList<Service>,
-    var totalPrice : Int) {
-}
+    @PrimaryKey var id : Int? = null,
+    val client : Customer,
+    val date : String,
+    val hour : String,
+    val services: ArrayList<Service>,
+    val totalPrice : Int)

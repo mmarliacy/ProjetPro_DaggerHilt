@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.oc.myagenda.R
 import com.oc.myagenda.model.Customer
 
-class CustomerAdapter(): RecyclerView.Adapter<CustomerAdapter.ViewHolder>() {
+class CustomerAdapter: RecyclerView.Adapter<CustomerAdapter.ViewHolder>() {
 
     var pCustomerList = ArrayList<Customer>()
         @SuppressLint("NotifyDataSetChanged")
@@ -17,6 +17,8 @@ class CustomerAdapter(): RecyclerView.Adapter<CustomerAdapter.ViewHolder>() {
             field = value
             notifyDataSetChanged()
         }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.client_item, parent, false)
         return ViewHolder(view)
