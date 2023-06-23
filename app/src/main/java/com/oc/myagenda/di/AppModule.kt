@@ -2,15 +2,15 @@ package com.oc.myagenda.di
 
 import android.app.Application
 import androidx.room.Room
-import com.oc.myagenda.mvvm.room.database.AgendaDatabase
-import com.oc.myagenda.mvvm.room.repository.AppointmentRepoImpl
-import com.oc.myagenda.mvvm.room.repository.CustomerRepoImpl
-import com.oc.myagenda.mvvm.room.repository.SectionRepoImpl
-import com.oc.myagenda.mvvm.room.repository.ServiceRepoImpl
-import com.oc.myagenda.mvvm.room.repository.interfaces.AppointmentRepository
-import com.oc.myagenda.mvvm.room.repository.interfaces.CustomerRepository
-import com.oc.myagenda.mvvm.room.repository.interfaces.SectionRepository
-import com.oc.myagenda.mvvm.room.repository.interfaces.ServiceRepository
+import com.oc.myagenda.database.room.AgendaDatabase
+import com.oc.myagenda.database.room.repository.AppointmentRepoImpl
+import com.oc.myagenda.database.room.repository.CustomerRepoImpl
+import com.oc.myagenda.database.room.repository.SectionRepoImpl
+import com.oc.myagenda.database.room.repository.ServiceRepoImpl
+import com.oc.myagenda.database.room.repository.requests.AppointmentRepository
+import com.oc.myagenda.database.room.repository.requests.CustomerRepository
+import com.oc.myagenda.database.room.repository.requests.SectionRepository
+import com.oc.myagenda.database.room.repository.requests.ServiceRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
